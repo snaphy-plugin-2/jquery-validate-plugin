@@ -8,7 +8,7 @@
 
 angular.module($snaphy.getModuleName())
 
-.config(function($validatorProvider) {
+.config(["$validatorProvider", function($validatorProvider) {
     $validatorProvider.setDefaults({
         errorClass: 'help-block text-right animated fadeInDown',
         errorElement: 'div',
@@ -32,18 +32,18 @@ angular.module($snaphy.getModuleName())
         //optional: add rules etc. according to jquery-validation docs
 
     });
-})
+}])
 
 
 
 
 
 
-.config(function($validatorProvider) {
+.config(["$validatorProvider", function($validatorProvider) {
     $validatorProvider.addMethod("regex", function(value, element) {
         return RegExp.test(value);
     }, "Please enter a valid data.");
-})
+}])
 
 
 
@@ -63,11 +63,11 @@ angular.module($snaphy.getModuleName())
  * @param  {[type]} function ($validatorProvider [description]
  * @return {[type]}          [description]
  */
-.config(function($validatorProvider) {
+.config(["$validatorProvider", function($validatorProvider) {
     $validatorProvider.addMethod("valueNotEquals", function(value, element, arg) {
         return arg !== value;
     }, "Please select some value");
-})
+}])
 
 
 
@@ -75,7 +75,7 @@ angular.module($snaphy.getModuleName())
 
 
 //regex for matching 12 hr time format.
-.config(function($validatorProvider) {
+.config(["$validatorProvider", function($validatorProvider) {
     $validatorProvider.addMethod("time12h", function(value, element) {
         if(!value){
             //In case of blank for mapstrack location  entry
@@ -90,7 +90,8 @@ angular.module($snaphy.getModuleName())
         patt = /^(0?[1-9]|1[012])(:[0-5]\d) [APap][mM]$/;
         return patt.test(value);
     }, "Time format must be (MM:HH AM/PM)");
-});
+}]);
+
 /*.config(function($validatorProvider) {
     $validatorProvider.addMethod("relation", function(value, element, arg) {
         //console.log("i am here");
