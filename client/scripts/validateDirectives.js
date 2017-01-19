@@ -14,13 +14,16 @@ angular.module($snaphy.getModuleName())
         errorElement: 'div',
         errorPlacement: function(error, e) {
             jQuery(e).parents('.form-group .form-material').append(error);
+            jQuery(e).parents('.inline-elements .form-material').append(error);
         },
         highlight: function(e) {
             jQuery(e).closest('.form-group').removeClass('has-error').addClass('has-error');
+            jQuery(e).closest('.inline-elements').removeClass('has-error').addClass('has-error');
             jQuery(e).closest('.help-block').remove();
         },
         success: function(e) {
             jQuery(e).closest('.form-group').removeClass('has-error');
+            jQuery(e).closest('.inline-elements').removeClass('has-error');
             jQuery(e).closest('.help-block').remove();
         },
         //http://stackoverflow.com/questions/22697276/selectize-js-jquery-validation
