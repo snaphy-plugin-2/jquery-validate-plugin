@@ -4,5 +4,8 @@
   "description": "Jquery-Validation to check validation ",
   "routeExposure": "/jqueryValidate",
   "activate": true,
+  "load":{
+    "root": true
+  },
   "pluginDepedencies": {}
 }
